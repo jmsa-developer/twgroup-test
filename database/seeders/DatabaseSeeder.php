@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use App\Models\Seller;
+use App\Models\Task;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +27,10 @@ class DatabaseSeeder extends Seeder
 
         Product::factory()
             ->count(50)
+            ->create();
+
+        Task::factory()
+            ->count(10)
             ->create();
     }
 }

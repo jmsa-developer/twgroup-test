@@ -15,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/challenge-one', [ChallengeOneController::class,'index'])->name('challenge-one');
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/tasks', [TaskController::class,'index'])->name('tasks.index');
+Route::middleware(['auth:sanctum', 'verified'])->get('challenge-one', [ChallengeOneController::class,'index'])->name('challenge-one');
+Route::middleware(['auth:sanctum', 'verified'])->get('tasks', [TaskController::class,'index'])->name('tasks.index');
+Route::middleware(['auth:sanctum', 'verified'])->get('tasks/{id}/add-log/', [TaskController::class,'add'])->name('log.add');
